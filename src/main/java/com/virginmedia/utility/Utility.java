@@ -259,7 +259,7 @@ public class Utility extends Base_Page {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
 
-        // After execution, you could see a folder "FailedTestsScreenshots" under screenshot folder
+        // After execution, you could see a folder "Screenshots" under screenshot folder
 
         String destination = System.getProperty("user.dir") + "/src/main/java/com/virginmedia/screen_shots/" + screenshotName + dateName + ".png";
         File finalDestination = new File(destination);
@@ -286,6 +286,10 @@ public class Utility extends Base_Page {
             e.printStackTrace();
         }
         return destination;
+    }
+    public void alertAccept (){
+       Alert alert=  driver.switchTo().alert();
+       alert.accept();
     }
 
 }
