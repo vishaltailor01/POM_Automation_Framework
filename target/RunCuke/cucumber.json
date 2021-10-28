@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 9163098200,
+              "duration": 10130876900,
               "status": "passed"
             },
             "match": {
@@ -21,7 +21,7 @@
         "after": [
           {
             "result": {
-              "duration": 1655355300,
+              "duration": 1475536800,
               "status": "passed"
             },
             "match": {
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3679838000,
+              "duration": 3760193700,
               "status": "passed"
             },
             "line": 6,
@@ -52,7 +52,7 @@
           },
           {
             "result": {
-              "duration": 17659993200,
+              "duration": 5455995500,
               "status": "passed"
             },
             "line": 7,
@@ -61,6 +61,42 @@
               "location": "AvailabilityStepdefs.clickOnSearchButton()"
             },
             "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6471118500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User select the address from list",
+            "match": {
+              "location": "AvailabilityStepdefs.userSelectTheAddressFromList()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 18294389900,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "click on next button",
+            "match": {
+              "location": "AvailabilityStepdefs.clickOnNextButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1861348500,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User can see the available Packages",
+            "match": {
+              "location": "AvailabilityStepdefs.userCanSeeTheAvailablePackages()"
+            },
+            "keyword": "Then "
           }
         ],
         "tags": [

@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 9163098200,
+  "duration": 10130876900,
   "status": "passed"
 });
 formatter.scenario({
@@ -34,6 +34,21 @@ formatter.step({
   "name": "Click on search button",
   "keyword": "And "
 });
+formatter.step({
+  "line": 8,
+  "name": "User select the address from list",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 9,
+  "name": "click on next button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 10,
+  "name": "User can see the available Packages",
+  "keyword": "Then "
+});
 formatter.match({
   "arguments": [
     {
@@ -44,18 +59,39 @@ formatter.match({
   "location": "AvailabilityStepdefs.userEnterPostCodeOnPostcodeField(String)"
 });
 formatter.result({
-  "duration": 3679838000,
+  "duration": 3760193700,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.clickOnSearchButton()"
 });
 formatter.result({
-  "duration": 17659993200,
+  "duration": 5455995500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "AvailabilityStepdefs.userSelectTheAddressFromList()"
+});
+formatter.result({
+  "duration": 6471118500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "AvailabilityStepdefs.clickOnNextButton()"
+});
+formatter.result({
+  "duration": 18294389900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "AvailabilityStepdefs.userCanSeeTheAvailablePackages()"
+});
+formatter.result({
+  "duration": 1861348500,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1655355300,
+  "duration": 1475536800,
   "status": "passed"
 });
 });
