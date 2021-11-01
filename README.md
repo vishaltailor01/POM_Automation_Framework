@@ -9,7 +9,7 @@ Dependency Java Maven
 Steps to clone execute the tests
 git clone https://github.com/vishaltailor01/POM_Automation_Framework
 
-mvn clean test
+
 
 
 
