@@ -1,54 +1,6 @@
-Jenkins file to run script through pipeline
-
-pipeline { 
-agent any 
-    stages { 
-        
-        stage ('Build') { 
-            steps{
-                echo "Building"
-
-            }
-        }
- //for windows ---> bat "mvn clean install"   
-        stage('Test') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "mvn clean install"
-                }
-            }
-        }
-                
+VM_Product_Search:
+     tags:
+       - ci
+     script:
+       - echo Hello World 
      
-        stage('Publish Allure Reports') {
-           steps {
-                script {
-                    allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: '/allure-results']]
-                    ])
-                }
-            }
-        }
-        
-        
-        stage('Publish Extent Report'){
-            steps{
-                     publishHTML([allowMissing: false,
-                                  alwaysLinkToLastBuild: false, 
-                                  keepAll: false, 
-                                  reportDir: 'build', 
-                                  reportFiles: 'TestExecutionReport.html', 
-                                  reportName: 'HTML Extent Report', 
-                                  reportTitles: ''])
-            }
-        }
-        
-        
-        
-    }
-
- }
