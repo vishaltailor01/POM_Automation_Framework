@@ -1,0 +1,6 @@
+VM_Product_Search:
+     tags:
+       - ci
+     script:
+       - echo Hello World 
+     
