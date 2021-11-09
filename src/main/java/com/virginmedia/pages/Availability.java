@@ -26,11 +26,14 @@ public class Availability extends Utility {
     By popup = By.id("consent_prompt_submit");
     @FindBy(className = "title")
     WebElement message;
+    @FindBy(xpath = "//span[contains(text(),'Skip')]")
+    WebElement skip;
 
     public void enterPostcode(String Postcode) throws InterruptedException {
         log.info("Enter Postcode " + postcode.toString());
         waitUntilElementToBeClickable(popup, 50);
         clickOnElement(popup);
+        ifElementIsDisplayed(skip);
         // Thread.sleep(5000);
         mouseHoverToElementAndClick(postcode);
         sendTextToElement(postcode, Postcode);

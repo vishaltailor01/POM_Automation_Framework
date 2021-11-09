@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -134,11 +135,11 @@ public class Utility extends Base_Page {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(by)));
     }
-    public void waitUntilElementToBeClickable(WebElement element , int timeout) {
+
+    public void waitUntilElementToBeClickable(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement((By) element)));
     }
-
 
 
     /**
@@ -156,6 +157,7 @@ public class Utility extends Base_Page {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
+
     public void waitUntilVisibilityOfElementLocated(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
@@ -180,6 +182,18 @@ public class Utility extends Base_Page {
             return false;
         }
     }
+
+    public void ifElementIsDisplayed(WebElement element) {
+        try {
+            if (element.isDisplayed()) {
+                clickOnElement(element);
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
+
 
     /**
      * This method will verify that element is displayed
@@ -287,9 +301,10 @@ public class Utility extends Base_Page {
         }
         return destination;
     }
-    public void alertAccept (){
-       Alert alert=  driver.switchTo().alert();
-       alert.accept();
+
+    public void alertAccept() {
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
     }
 
 }

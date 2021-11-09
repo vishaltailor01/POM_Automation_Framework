@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         // cucumber html report plugin
         plugin = {"pretty", "html:target/cucumber-report/cucumber.html",
                 // extent report plugin
-                "com.cucumber.listener.ExtentCucumberFormatter:target/Extent_Reports/report.htm",
+                "com.cucumber.listener.ExtentCucumberFormatter:target/Extent_Reports/report.html",
                 // json report plugin
                 "json:target/RunCuke/cucumber.json"},
         // display the console output in a proper readable format
@@ -41,6 +41,9 @@ public class CukeTest {
         Reporter.setSystemInfo("Selenium", "3.141.59");
         Reporter.setSystemInfo("Maven", "3.5.9");
         Reporter.setSystemInfo("Java Version", "1.8.0_151");
+        Reporter.setSystemInfo("Junit","4.11");
+        Reporter.setSystemInfo("Cucumber","1.2.5");
+
     }
 
 }

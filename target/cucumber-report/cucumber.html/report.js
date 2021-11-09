@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 10130876900,
+  "duration": 10061749700,
   "status": "passed"
 });
 formatter.scenario({
@@ -59,39 +59,39 @@ formatter.match({
   "location": "AvailabilityStepdefs.userEnterPostCodeOnPostcodeField(String)"
 });
 formatter.result({
-  "duration": 3760193700,
+  "duration": 13573834400,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.clickOnSearchButton()"
 });
 formatter.result({
-  "duration": 5455995500,
+  "duration": 5373747800,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.userSelectTheAddressFromList()"
 });
 formatter.result({
-  "duration": 6471118500,
+  "duration": 5660487300,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.clickOnNextButton()"
 });
 formatter.result({
-  "duration": 18294389900,
+  "duration": 11292291200,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.userCanSeeTheAvailablePackages()"
 });
 formatter.result({
-  "duration": 1861348500,
+  "duration": 586504200,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1475536800,
+  "duration": 1663280200,
   "status": "passed"
 });
 });
