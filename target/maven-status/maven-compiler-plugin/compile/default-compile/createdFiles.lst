@@ -1,0 +1,4 @@
+com\virginmedia\base_Page\Base_Page.class
+com\virginmedia\property_Reader\Property_Reader.class
+com\virginmedia\utility\Utility.class
+com\virginmedia\pages\Availability.class
