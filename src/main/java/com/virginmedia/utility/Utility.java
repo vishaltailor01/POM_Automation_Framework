@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -136,9 +137,9 @@ public class Utility extends Base_Page {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(by)));
     }
 
-    public void waitUntilElementToBeClickable(WebElement element, int timeout) {
+    public void waitUntilElementToBeClickable(WebElement element,int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement((By) element)));
+                wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
 

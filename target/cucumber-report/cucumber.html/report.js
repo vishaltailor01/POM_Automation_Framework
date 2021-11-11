@@ -2,19 +2,19 @@ $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.
 formatter.feature({
   "line": 1,
   "name": "Broadband and tv Packages  Availability Functionality",
-  "description": "User want to check which broadband and TV packages are available as per user postcode .",
+  "description": "User want to check which broadband and TV packages are available as per user postcode.",
   "id": "broadband-and-tv-packages--availability-functionality",
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 10061749700,
+  "duration": 18520357100,
   "status": "passed"
 });
 formatter.scenario({
   "line": 5,
-  "name": "User is on a HomePage",
+  "name": "User is on a HomePage and accept all cookies",
   "description": "",
-  "id": "broadband-and-tv-packages--availability-functionality;user-is-on-a-homepage",
+  "id": "broadband-and-tv-packages--availability-functionality;user-is-on-a-homepage-and-accept-all-cookies",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -59,39 +59,39 @@ formatter.match({
   "location": "AvailabilityStepdefs.userEnterPostCodeOnPostcodeField(String)"
 });
 formatter.result({
-  "duration": 13573834400,
+  "duration": 15601684900,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.clickOnSearchButton()"
 });
 formatter.result({
-  "duration": 5373747800,
+  "duration": 5485988600,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.userSelectTheAddressFromList()"
 });
 formatter.result({
-  "duration": 5660487300,
+  "duration": 5952410300,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.clickOnNextButton()"
 });
 formatter.result({
-  "duration": 11292291200,
+  "duration": 13106269000,
   "status": "passed"
 });
 formatter.match({
   "location": "AvailabilityStepdefs.userCanSeeTheAvailablePackages()"
 });
 formatter.result({
-  "duration": 586504200,
+  "duration": 570367500,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1663280200,
+  "duration": 1607132800,
   "status": "passed"
 });
 });

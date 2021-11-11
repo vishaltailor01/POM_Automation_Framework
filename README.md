@@ -24,7 +24,7 @@ Page Factory is a class provided by Selenium WebDriver to support Page Object De
 
 BDD is a collaborative approach,BDD practitioners may use Cucumber to automate their documentation.
 Gherkin is a simple syntax that allows teams to write business readable, executable specifications. 
-Some of the Gherkin keywords are Given, When, and Then, but not all text that uses these words is Gherkin.
+Some Gherkin keywords are Given, When, and Then, but not all text that uses these words is Gherkin.
 Given is the context for the scenario. We’re putting the system into a specific state, ready for the scenario to unfold.
 When is an action. Something that happens to the system that will cause something else to happen: an outcome.
 Then is the outcome. It’s the behaviour we expect from the system when this action happens in this context.

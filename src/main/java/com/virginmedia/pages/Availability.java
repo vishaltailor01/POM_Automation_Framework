@@ -17,13 +17,16 @@ public class Availability extends Utility {
     private static final Logger log = LogManager.getLogger(Availability.class.getName());
     @FindBy(css = "#postcode-field")
     WebElement postcode;
-    @FindBy(xpath = "//div[@class='button-container']")
+//    @FindBy(xpath = "//div[@class='button-container']")
+//    WebElement button;
+    @FindBy(xpath = "//body/div[@id='mainPageContent']/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[1]/div[2]/button[1]")
     WebElement button;
     @FindBy(xpath = "//li[contains(text(),'Flat 10 Buckingham Court, 17 Linthorpe Avenue, Wem')]")
     WebElement address;
     @FindBy(id = "next")
     WebElement nextButton;
-    By popup = By.id("consent_prompt_submit");
+    @FindBy(id = "consent_prompt_submit")
+    WebElement popup;
     @FindBy(className = "title")
     WebElement message;
     @FindBy(xpath = "//span[contains(text(),'Skip')]")
@@ -31,7 +34,7 @@ public class Availability extends Utility {
 
     public void enterPostcode(String Postcode) throws InterruptedException {
         log.info("Enter Postcode " + postcode.toString());
-        waitUntilElementToBeClickable(popup, 50);
+        waitUntilElementToBeClickable(popup,10);
         clickOnElement(popup);
         ifElementIsDisplayed(skip);
         // Thread.sleep(5000);
@@ -41,6 +44,7 @@ public class Availability extends Utility {
 
     public void button() throws InterruptedException {
         log.info("Click on button " + button.toString());
+
         Thread.sleep(5000);
         clickOnElement(button);
 
