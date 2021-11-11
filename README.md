@@ -22,7 +22,7 @@ Page Factory is a class provided by Selenium WebDriver to support Page Object De
 
 ## Behavior Driven Devlopment (BDD)
 
-BDD is a collaborative approach, made up of three practices. BDD practitioners may use Cucumber to automate their documentation.
+BDD is a collaborative approach,BDD practitioners may use Cucumber to automate their documentation.
 Gherkin is a simple syntax that allows teams to write business readable, executable specifications. 
 Some of the Gherkin keywords are Given, When, and Then, but not all text that uses these words is Gherkin.
 Given is the context for the scenario. We’re putting the system into a specific state, ready for the scenario to unfold.
@@ -31,7 +31,7 @@ Then is the outcome. It’s the behaviour we expect from the system when this ac
 
 ## Technologies Used:
 * Selenium WebDriver
-* JDK 12 (Java Development Kit)
+* JDK (Java Development Kit)
 * JUnit (Unit Framework) - Data Driven Approach
 * Log4j (logging API) • Maven (Build Automation Tool)
 * Cucumber (write the test case in feature file help of gherkin language)
