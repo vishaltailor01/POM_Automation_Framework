@@ -307,5 +307,264 @@ public class Utility extends Base_Page {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
+    package utility;
+
+// import org.openqa.selenium.*;
+// import org.openqa.selenium.interactions.Actions;
+// import org.openqa.selenium.support.ui.ExpectedCondition;
+// import org.openqa.selenium.support.ui.ExpectedConditions;
+// import org.openqa.selenium.support.ui.Select;
+// import org.openqa.selenium.support.ui.WebDriverWait;
+
+// import java.time.Duration;
+// import java.util.Locale;
+// import java.util.NoSuchElementException;
+//     New Libreary
+public class SeleniumLibrary {
+    WebDriver driver;
+    WebDriverWait webDriverWait60Sec;
+
+    public SeleniumLibrary(WebDriver driver) {
+        this.driver = driver;
+        webDriverWait60Sec = new WebDriverWait(driver, Duration.ofSeconds(60));
+    }
+
+    public WebElement getElement(String locator) {
+        String strLocatorType = locator.split(":", 2)[0].toLowerCase();
+        String strLocatorValue = locator.split(":", 2)[1];
+        WebElement element;
+        
+        //waitUntilAngular5Ready();
+        //waitForAngular5Load();
+        //ajaxComplete();
+        //waitForAngularLoad();
+        //waitUntilJSReady();
+        //waitForJQueryLoad();
+        
+        switch (strLocatorType) {
+            case "xpath":
+                By localXpathBy = By.xpath(strLocatorValue);
+                webDriverWait60Sec
+                        //.ignoring(ElementNotVisibleException.class)
+                        .ignoring(NoSuchElementException.class)
+                        .ignoring(StaleElementReferenceException.class)
+                        .until(ExpectedConditions.elementToBeClickable(localXpathBy));
+                //webDriverWait60Sec.until(ExpectedConditions.presenceOfElementLocated(localXpathBy));
+                element = driver.findElement(localXpathBy);
+                break;
+            case "css":
+                By localCSSBy = By.cssSelector(strLocatorValue);
+                webDriverWait60Sec
+                        //.ignoring(ElementNotVisibleException.class)
+                        .ignoring(NoSuchElementException.class)
+                        .ignoring(StaleElementReferenceException.class)
+                        .until(ExpectedConditions.elementToBeClickable(localCSSBy));
+                //webDriverWait60Sec.until(ExpectedConditions.presenceOfElementLocated(localCSSBy));
+                element = driver.findElement(localCSSBy);
+                break;
+            default:
+                throw new NoSuchElementException("Unknown Locator Type" + locator);
+        }
+        return element;
+    }
+
+
+    public void click(String locator) {
+        try {
+            WebElement element = getElement(locator);
+            element.click();
+            waitUntilJSReady();
+            waitForJQueryLoad();
+
+        } catch (Exception t) {
+            System.out.println("unable to click on the element with locator string" + locator);
+        }
+    }
+
+    public void chooseInDropDown(String locator,String value) {
+        try {
+            Select selectElement = new Select(getElement(locator));
+            selectElement.selectByVisibleText(value);
+            waitUntilJSReady();
+            waitForJQueryLoad();
+
+        } catch (Exception t) {
+            System.out.println("unable to click on the element with locator string" + locator);
+        }
+    }
+
+    public void enterText(String locator,String value) {
+        try {
+            WebElement element = getElement(locator);
+            element.sendKeys(value);
+            waitUntilJSReady();
+            waitForJQueryLoad();
+
+        } catch (Exception t) {
+            System.out.println("unable to click on the element with locator string" + locator);
+        }
+    }
+
+    public void hoverAround(String locator) {
+        try {
+            Actions actions = new Actions(driver);
+            WebElement element = getElement(locator);
+            actions.moveToElement(element).perform();
+
+        } catch (Exception t) {
+            System.out.println("unable to find or hover on the element with locator string" + locator);
+        }
+    }
+
+
+    public void waitForElementToBeVisible(String locator) {
+        try {
+            WebElement element = getElement(locator);
+            isElementVisible(element);
+        } catch (Exception t) {
+            System.out.println("unable to find 'visible' element using locator" + locator);
+
+        }
+    }
+
+    public void waitForElementToBeInVisible(String locator) {
+        try {
+            WebElement element = getElement(locator);
+
+        } catch (Exception t) {
+            System.out.println("unable to find 'visible' element using locator" + locator);
+
+        }
+    }
+
+    public boolean isElementVisible(WebElement element) {
+        try {
+            webDriverWait60Sec.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isElementInvisible(WebElement element) {
+        try {
+            webDriverWait60Sec.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.invisibilityOf(element));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void waitForElementToBeClickable(String locator) {
+        try {
+            WebElement element = getElement(locator);
+            isElementVisible(element);
+            isElementClickable(element);
+        } catch (Exception t) {
+            System.out.println("unable to find 'visible' element using locator" + locator);
+
+        }
+    }
+
+    public boolean isElementClickable(WebElement element) {
+        try {
+            webDriverWait60Sec.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(element));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean isElementClickable(String locator) {
+        try {
+            WebElement element = getElement(locator);
+            webDriverWait60Sec.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(element));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private void waitUntilJSReady() {
+        JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+        WebDriverWait jsWait = new WebDriverWait(driver,Duration.ofSeconds(60));
+        try {
+            ExpectedCondition<Boolean> jsLoad = driver -> ((JavascriptExecutor) this.driver)
+                    .executeScript("return document.readyState").toString().equals("complete");
+            boolean jsReady = jsExec.executeScript("return document.readyState").toString().equals("complete");
+            if (!jsReady) {
+                jsWait.until(jsLoad);
+            }
+        } catch (WebDriverException ignored) {
+        }
+    }
+    private void ajaxComplete() {
+        JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+        jsExec.executeScript("var callback = arguments[arguments.length - 1];"
+                + "var xhr = new XMLHttpRequest();" + "xhr.open('GET', '/Ajax_call', true);"
+                + "xhr.onreadystatechange = function() {" + "  if (xhr.readyState == 4) {"
+                + "    callback(xhr.responseText);" + "  }" + "};" + "xhr.send();");
+    }
+    private void waitForAngularLoad() {
+        String angularReadyScript = "return angular.element(document).injector().get('$http').pendingRequests.length === 0";
+        angularLoads(angularReadyScript);
+    }
+
+    private void waitForAngular5Load() {
+        String angularReadyScript = "return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1";
+        angularLoads(angularReadyScript);
+    }
+    private void angularLoads(String angularReadyScript) {
+        JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+        WebDriverWait jsWait = new WebDriverWait(driver,Duration.ofSeconds(60));
+        try {
+            ExpectedCondition<Boolean> angularLoad = driver -> Boolean.valueOf(((JavascriptExecutor) driver)
+                    .executeScript(angularReadyScript).toString());
+            boolean angularReady = Boolean.valueOf(jsExec.executeScript(angularReadyScript).toString());
+            if (!angularReady) {
+                jsWait.until(angularLoad);
+            }
+        } catch (WebDriverException ignored) {
+        }
+    }
+    public void waitUntilAngular5Ready() {
+        JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+        WebDriverWait jsWait = new WebDriverWait(driver,Duration.ofSeconds(60));
+        try {
+            Object angular5Check = jsExec.executeScript("return getAllAngularRootElements()[0].attributes['ng-version']");
+            if (angular5Check != null) {
+                Boolean angularPageLoaded = (Boolean) jsExec.executeScript("return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1");
+                if (!angularPageLoaded) {
+                    poll(20);
+                    waitForAngular5Load();
+                    poll(20);
+                }
+            }
+        } catch (WebDriverException ignored) {
+        }
+    }
+
+    private void poll(long milis) {
+        try {
+            Thread.sleep(milis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void waitForJQueryLoad() {
+        JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+        WebDriverWait jsWait = new WebDriverWait(driver,Duration.ofSeconds(60));
+        try {
+            ExpectedCondition<Boolean> jQueryLoad = driver -> ((Long) ((JavascriptExecutor) this.driver)
+                    .executeScript("return jQuery.active") == 0);
+            boolean jqueryReady = (Boolean) jsExec.executeScript("return jQuery.active==0");
+            if (!jqueryReady) {
+                jsWait.until(jQueryLoad);
+            }
+        } catch (WebDriverException ignored) {
+        }
+    }
+}
+
 
 }
